@@ -1,4 +1,5 @@
 @startuml
+skinparam groupInheritance 2
 class Member{
 }
 class BoardMember{
@@ -11,4 +12,28 @@ class BoardMeeting{
 }
 class Location{
 }
+class Person{
+}
+class AAUOC{
+}
+
+
+Event <|-- Conference
+Event <|-- BoardMeeting
+Event -- Member
+
+
+
+Person <|-- Member
+Member <|-- BoardMember
+
+
+AAUOC o-- Person
+AAUOC o-- Location
+AAUOC o-- Event
+
+Location -- Event
+
+Conference -- Person
+BoardMeeting -- BoardMember
 @enduml
