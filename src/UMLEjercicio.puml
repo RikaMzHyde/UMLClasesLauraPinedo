@@ -17,23 +17,19 @@ class Person{
 class AAUOC{
 }
 
-
 Event <|-- Conference
 Event <|-- BoardMeeting
-Event -- Member
-
-
+Event "0..*"-- "0..*"Member : attendsTo
 
 Person <|-- Member
 Member <|-- BoardMember
 
+AAUOC o-- "0..*"Person
+AAUOC o-- "0..*"Location
+AAUOC o-- "0..*"Event
 
-AAUOC o-- Person
-AAUOC o-- Location
-AAUOC o-- Event
+Location "1" -- "0..*" Event : isLocated In
 
-Location -- Event
-
-Conference -- Person
-BoardMeeting -- BoardMember
+Conference "0..*" -- "0..*" Person : attendsTo
+BoardMeeting "0..*" -- "0..*" BoardMember : attendsTo
 @enduml
